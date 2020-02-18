@@ -11,4 +11,10 @@ public class MainController {
         return "index2";
     }
 
+    
+    @RequestMapping(value = "/test", method = RequestMethod.GET)
+    public String test() {
+        return "test";
+    }
+
 }
