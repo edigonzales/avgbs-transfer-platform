@@ -6,7 +6,8 @@ plugins {
 
 group = 'ch.so.agi.avgbs'
 
-sourceCompatibility = '11'
+sourceCompatibility = '8'
+//sourceCompatibility = '11'
 
 configurations {
 	developmentOnly
@@ -25,6 +26,7 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-oauth2-jose'
 	implementation 'org.springframework.boot:spring-boot-starter-security'
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+    implementation 'nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect:2.4.1'	
     implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity5'	
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'

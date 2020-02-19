@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class MainController {
     @RequestMapping(value = "/foo", method = RequestMethod.GET)
-    public String upload() {
+    public String index2() {
         return "index2";
     }
 
@@ -16,5 +16,10 @@ public class MainController {
     public String test() {
         return "test";
     }
+    
+    @RequestMapping(value = "/upload", method = RequestMethod.GET)
+    public String upload() {
+        return "upload";
+    }    
 
 }

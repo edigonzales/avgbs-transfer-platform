@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3" layout:decorate="~{layout}">
+
+<head>
+    <title>Log in</title>
+    <style>
+        .border-info {
+            border-color:rgba(0, 0, 0, 0.125)!important;
+            border-width:1px;
+        }
+        .card {
+            box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+        }
+    </style>    
+</head>
+
+<body>
+    <div layout:fragment="content" style="padding-top:100px;">
+         <div class="row justify-content-sm-center">
+            <div class="col-sm-6 col-md-4">
+	            <div class="card border-info">
+		            <div class="card-header">Sign in to continue</div>
+		            <div class="card-body">
+		                <form action="home" th:action="@{/login}" method="post">
+		                    <div class="form-group">
+		                        <input type="email" class="form-control mb-2" id="email" name="username" placeholder="Email" required autofocus>
+		                    </div>
+		                    <div class="form-group">
+		                        <input type="password" class="form-control mb-2" id="pwd" name="password" placeholder="Password" required>
+		                    </div>
+		                    <div class="form-group form-check">
+		                        <label class="form-check-label">
+		                            <input class="form-check-input" type="checkbox" name="remember-me" > Remember me
+		                        </label>
+		                    </div>
+		                    <button class="btn btn-lg btn-primary btn-block mb-1" type="submit">Log in</button>                  
+		                </form>
+		            </div>
+	            </div>
+            </div>            
+        </div>
+        
+        <div class="row justify-content-sm-center" style="margin-top:1rem;">
+            <div class="col-sm-6 col-md-4">
+                <div th:if="${param.error}" class="alert alert-danger alert-dismissable">
+                        <i class="icon fa fa-ban"></i> 
+                        <span th:text="#{error.login_failed}">Invalid Email and Password.</span>
+                </div>
+                <div th:if="${param.logout}" class="alert alert-info alert-dismissable">
+                        <i class="icon fa fa-info"></i> 
+                        <span th:text="#{info.logout_success}">You have been logged out.</span>
+                </div>
+                <div th:if="${msg!=null}" class="alert alert-warning alert-dismissable">
+                        <i class="icon fa fa-warning"></i> 
+                        <span th:text="${msg}"></span>
+                </div>
+            </div>
+        </div>
+ 
+    </div>
+    
+</body>
+
+</html>

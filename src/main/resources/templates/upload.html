@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+    xmlns:th="http://www.thymeleaf.org" 
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" 
+    xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3" 
+    layout:decorate="~{layout}">
+
+<head>
+    <title>File Upload</title>   
+</head>
+
+<body>
+    <div layout:fragment="content" style="padding-top:200px;">
+    <div class="row justify-content-sm-center">
+    <div class="col-sm-6 col-md-7">
+    
+        <form method="POST" id="frmUpload" th:action="@{/upload}" enctype="multipart/form-data">
+            <div class="custom-file mb-3">
+                <input type="file" class="custom-file-input" name="file" id="file">
+                <label class="custom-file-label" for="file">Choose file</label>
+                <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />      
+            </div>
+            <div class="mt-3">
+                <button type="submit" class="btn btn-primary" id="btnSubmit">Submit</button>
+            </div>
+        </form>
+       
+    </div> 
+    </div>
+    </div>
+
+    <th:block layout:fragment="script">
+    
+	    <script>
+	        $(document).ready(function () {
+	            // We need to reset form fields for the case the user
+	            // hits the back button after a validation. Without
+	            // reseting the custom-file-input on event ist not
+	            // fired.
+	            $("#frmUpload")[0].reset();
+	
+	            $("#frmUpload").submit(function (e) {
+	                $("#btnSubmit").attr("disabled", true);
+	                return true;
+	            });
+	            
+	            $(".custom-file-input").on("change", function() {
+	                var fileName = $(this).val().split("\\").pop();
+	                $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+	            });            
+	        });
+	    </script>
+    
+    </th:block>
+    
+</body>
+
+</html>
