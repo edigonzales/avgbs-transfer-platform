@@ -39,7 +39,9 @@ public class AuthConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .oauth2Login()
                 .and()
-                .logout(logout -> logout.logoutSuccessHandler(oidcLogoutSuccessHandler()));
+                .logout()
+                .clearAuthentication(true)
+                .deleteCookies().invalidateHttpSession(true);
         // @formatter:on
         
     }

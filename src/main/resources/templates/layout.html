@@ -41,6 +41,14 @@
 	        <div><span sec:authentication="name">User</span> | <a th:href="@{/logout}">Logout</a></div>
 	        <!-- <div><span>[[${#authentication.name}]]</span></div>-->
 		</nav>
+		
+<!-- anywhere in your document: -->
+<form:form action="/logout" id="logoutForm">
+  <!-- csrf hidden input included automagically -->
+</form:form>
+
+<!-- in your menu: -->
+<a href="/logout" onclick="document.forms.namedItem('logoutForm').submit()">Log out</a>
 	</div>
 	
     <div class="container">
