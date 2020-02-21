@@ -40,22 +40,16 @@
 	        <span></span>
 	        <div><span sec:authentication="name">User</span> | <a th:href="@{/logout}">Logout</a></div>
 	        <!-- <div><span>[[${#authentication.name}]]</span></div>-->
+	        
+	        <div>
+   <form th:action="@{/logout}" method="POST">
+        <input type="submit" value="Logout"/>
+   </form>  
+	        
+	        </div>
 		</nav>
 		
-<!-- anywhere in your document: -->
-<form:form action="/logout" id="logoutForm">
-  <!-- csrf hidden input included automagically -->
-</form:form>
 
-<!-- in your menu: -->
-<a href="/logout" onclick="document.forms.namedItem('logoutForm').submit()">Log out</a>
-	</div>
-	
-    <div class="container">
-        <div layout:fragment="content">
-            <!-- Your Page Content Here -->
-        </div>
-    </div>
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>

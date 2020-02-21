@@ -38,6 +38,10 @@ public class MainController {
         return "upload";
     }    
 
+    @RequestMapping(value = "/welcome", method = RequestMethod.GET)
+    public String welcome() {
+        return "welcome";
+    }     
 
 
 
