@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" 
     xmlns:th="http://www.thymeleaf.org" 
     xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" 
-    xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3" 
+    xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5" 
     layout:decorate="~{layout}">
 
 <head>
@@ -18,7 +18,7 @@
             <div class="custom-file mb-3">
                 <input type="file" class="custom-file-input" name="file" id="file">
                 <label class="custom-file-label" for="file">Choose file</label>
-                <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />  
+                <input type="hidden" accept=".xtf,.xml,.itf" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />  
             </div>
             <div class="mt-3">
                 <button type="submit" class="btn btn-primary" id="btnSubmit">Submit</button>
@@ -30,7 +30,6 @@
     </div>
 
     <th:block layout:fragment="script">
-    
 	    <script>
 	        $(document).ready(function () {
 	            // We need to reset form fields for the case the user
@@ -50,7 +49,6 @@
 	            });            
 	        });
 	    </script>
-    
     </th:block>
     
 </body>

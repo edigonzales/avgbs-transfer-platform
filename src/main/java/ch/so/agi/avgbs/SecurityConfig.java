@@ -8,14 +8,15 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 @Configuration
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
     
+    
     @Override
     protected void configure(HttpSecurity http) throws Exception {
+        
         // @formatter:off
-        http.authorizeRequests()
-            .antMatchers("/", "/login**", "/error**").permitAll()
-            .anyRequest().authenticated()
-            .and().logout().logoutUrl("/logout").logoutSuccessUrl("/")
-            .and().oauth2Login();
+        http.authorizeRequests().antMatchers("/", "/login**", "/error**").permitAll()
+        .anyRequest().authenticated()
+        .and().logout().invalidateHttpSession(true).deleteCookies("JSESSIONID", "cognito", "XSRF-TOKEN").clearAuthentication(true).logoutUrl("/logout").logoutSuccessUrl("/")
+        .and().oauth2Login();
         // @formatter:on
     }
 }
