@@ -41,15 +41,12 @@
             <div><span sec:authentication="name">User</span> | <a th:href="@{/logout}">Logout</a></div>
         </nav>
     </div>
-    
-    
-    <!-- TODO 
     <div sec:authorize="isAnonymous()">
-        <div class="box">
-            <a class="button login is-primary" th:href="@{/oauth2/authorization/cognito}">Log in with Amazon Cognito</a>
-        </div>
+        <nav class="navbar justify-content-between" style="background-color:white!important;">
+            <span></span>
+            <div><a th:href="@{/oauth2/authorization/cognito}">Login</a></div>	        
+        </nav>        
     </div>
-     -->
 		
 		
     <div class="container">

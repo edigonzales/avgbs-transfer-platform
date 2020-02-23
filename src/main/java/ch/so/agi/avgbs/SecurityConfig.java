@@ -15,8 +15,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         // @formatter:off
         http.authorizeRequests().antMatchers("/", "/login**", "/error**").permitAll()
         .anyRequest().authenticated()
-        .and().logout().invalidateHttpSession(true).deleteCookies("JSESSIONID", "cognito", "XSRF-TOKEN").clearAuthentication(true).logoutUrl("/logout").logoutSuccessUrl("/")
-        .and().oauth2Login();
+        .and()
+        .logout()
+            .invalidateHttpSession(true)
+            .deleteCookies("JSESSIONID", "cognito", "XSRF-TOKEN")
+            .clearAuthentication(true)
+            .logoutUrl("/logout")
+            .logoutSuccessUrl("/")
+        .and()
+        .oauth2Login().defaultSuccessUrl("/", true);
         // @formatter:on
     }
 }

@@ -1,25 +1,28 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+    xmlns:th="http://www.thymeleaf.org" 
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" 
+    xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5" 
+    layout:decorate="~{layout}">
+
 <head>
-  <title>Spring Security</title>
+    <title>foobar</title>   
 </head>
+
 <body>
-<h3>
-<a href="/oauth2/authorization/github" th:href="@{/hello}" th:if="${#httpServletRequest?.remoteUser != undefined }">
-      Go to Dashboard
-</a>
-<a href="/hello" th:href="@{/oauth2/authorization/github}" th:if="${#httpServletRequest?.remoteUser == undefined }">
-      Login with GitHub
-</a> <br/><br/>
-<a href="/hello" th:href="@{/oauth2/authorization/facebook}" th:if="${#httpServletRequest?.remoteUser == undefined }">
-      Login with Facebook
-</a> <br/><br/>
-<a href="/hello" th:href="@{/oauth2/authorization/google}" th:if="${#httpServletRequest?.remoteUser == undefined }">
-      Login with Google
-</a> <br/><br/>
-<a href="/hello" th:href="@{/oauth2/authorization/cognito}" th:if="${#httpServletRequest?.remoteUser == undefined }">
-      Login with AWS
-</a>
-</h3>                
+    <div layout:fragment="content" style="padding-top:200px;">
+	    <div class="row justify-content-sm-center">
+		    <div class="col-sm-6 col-md-7">
+                Startseite
+		    </div> 
+	    </div>
+        <div class="row justify-content-sm-center">
+            <div class="col-sm-6 col-md-7">
+                <a th:href="@{/upload}">Upload</a>
+            </div>
+        </div>
+	    
+    </div>
 </body>
+
 </html>
