@@ -27,7 +27,10 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.oauth2.core.OAuth2AccessToken;
-
+import org.apache.camel.CamelContext;
+import org.apache.camel.Exchange;
+import org.apache.camel.ProducerTemplate;
+import org.apache.camel.builder.ExchangeBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -39,6 +42,9 @@ public class MainController {
 	
     @Autowired
     private ServletContext servletContext;
+    
+    @Autowired
+    CamelContext camelContext;
 
     @Value("${app.pathToUploadFolder:${java.io.tmpdir}}")
     private String pathToUploadFolder;
@@ -95,7 +101,20 @@ public class MainController {
             }
             */
             
-            /*
+            
+            log.info("foo: " + authentication.getClass());
+
+            // TODO:
+            // - Eindeutige ID der Prüfung / des Processes einführen?
+            // Diese ID als Property in der Message mitschleppen, damit
+            // z.B. auf archivierte Daten (archiviviert innerhalb eines Processors)
+            // zugegriffen werden kann.
+            // - Fehlerhandling. Exceptions sind das eine. Soll das aber
+            // irgendwie "schön" hergerichtet werden, so als Zusammenfassung.
+            // Eventuell auch im Erfolgsfalle.
+            // - Nur AVGBS-Modell ist erlaubt. -> siehe avgbs2mtab
+            // Mmmh, avgbs hat keine Imports. Andere Variante: Modellnamen
+            // auslesen und Übungsabbruch...
             
             // Send message to route with authentication information.
             ProducerTemplate template = camelContext.createProducerTemplate();
@@ -105,13 +124,17 @@ public class MainController {
                     .withHeader(Exchange.AUTHENTICATION, authentication)
                     .withHeader(Exchange.FILE_NAME, uploadFilePath.toFile().getName()) // TODO: use file name only?
                     .build();
+            /*
 
             // Asynchronous request
             //template.asyncSend("direct:avgbsCheckservice", exchange);
-            
+            */
             // Synchronous request
-            Exchange result = template.send("direct:avgbsCheckservice", exchange);
-            
+            log.info("foo");
+            Exchange result = template.send("direct:avgbs-data-transfer", exchange);
+            log.info("bar");
+
+            /*
             if (result.isFailed()) {
                 return ResponseEntity.badRequest().contentType(MediaType.parseMediaType("text/plain")).body(result.getException().getMessage());
             } else {
@@ -127,10 +150,6 @@ public class MainController {
             return ResponseEntity.badRequest().contentType(MediaType.parseMediaType("text/plain")).body(e.getMessage());
         }
     }
-
-    
-    
-    
 
     @RequestMapping(value = "/welcome", method = RequestMethod.GET)
     public String welcome() {
