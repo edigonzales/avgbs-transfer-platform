@@ -101,7 +101,6 @@ public class MainController {
             }
             */
             
-            
             log.info("foo: " + authentication.getClass());
 
             // TODO:
@@ -112,9 +111,6 @@ public class MainController {
             // - Fehlerhandling. Exceptions sind das eine. Soll das aber
             // irgendwie "schön" hergerichtet werden, so als Zusammenfassung.
             // Eventuell auch im Erfolgsfalle.
-            // - Nur AVGBS-Modell ist erlaubt. -> siehe avgbs2mtab
-            // Mmmh, avgbs hat keine Imports. Andere Variante: Modellnamen
-            // auslesen und Übungsabbruch...
             
             // Send message to route with authentication information.
             ProducerTemplate template = camelContext.createProducerTemplate();
@@ -122,31 +118,28 @@ public class MainController {
             Exchange exchange = ExchangeBuilder.anExchange(camelContext)
                     .withBody(uploadFilePath.toFile())
                     .withHeader(Exchange.AUTHENTICATION, authentication)
-                    .withHeader(Exchange.FILE_NAME, uploadFilePath.toFile().getName()) // TODO: use file name only?
+                    .withHeader(Exchange.FILE_NAME, uploadFilePath.toFile().getName()) 
                     .build();
-            /*
 
             // Asynchronous request
             //template.asyncSend("direct:avgbsCheckservice", exchange);
-            */
+            
             // Synchronous request
             log.info("foo");
             Exchange result = template.send("direct:avgbs-data-transfer", exchange);
+            System.out.println(result.isFailed());
             log.info("bar");
 
-            /*
+            // If there is an exception in the route, the result will be 
+            // isFailed=true.
             if (result.isFailed()) {
                 return ResponseEntity.badRequest().contentType(MediaType.parseMediaType("text/plain")).body(result.getException().getMessage());
             } else {
                 return ResponseEntity.ok().contentType(MediaType.TEXT_PLAIN).body("alles gut");
             }
-            */
-            
-            return null;
-            
         } catch (Exception e) {
-            e.printStackTrace();
-            log.error(e.getMessage());
+            //e.printStackTrace();
+            //log.error(e.getMessage());
             return ResponseEntity.badRequest().contentType(MediaType.parseMediaType("text/plain")).body(e.getMessage());
         }
     }
