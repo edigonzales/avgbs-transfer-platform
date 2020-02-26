@@ -25,7 +25,7 @@ public class AvgbsRoute extends RouteBuilder {
         .log(LoggingLevel.ERROR, simple("${exception.stacktrace}").getText());
 		*/
 
-		// Reihenfolge sollte wohl eher Validierung -> Authorisierung sein.
+		// Reihenfolge sollte wohl Validierung -> Authorisierung sein.
 		// Weil man für die Prüfung der Authorisierung das File parsen muss,
 		// will man sicher sein, dass es sauberes INTERLIS ist.
 		
@@ -35,9 +35,11 @@ public class AvgbsRoute extends RouteBuilder {
         .log(LoggingLevel.INFO, "Ilivalidator successfully passed.")
         .log(LoggingLevel.INFO, "Authorisation started.")
         .process(authorisationProcessor)
+        .end();
         
+        // TODO: Archivierung etc. etc.
         
-        .to("file:///Users/stefan/tmp/"); // FIXME
+//        .to("file:///Users/stefan/tmp/"); // FIXME
 	}
 
 }
