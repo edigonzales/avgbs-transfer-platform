@@ -15,15 +15,14 @@ public class AvgbsRoute extends RouteBuilder {
     
 	@Override
 	public void configure() throws Exception {
-		// Wenn die Exception hier abgefangen wird, failed die Route nicht.
+		// Wenn die Exception hier abgefangen wird, failed die Route nicht,
+		// wenn "handled(true)" verwendet wird.
 		// Man könnte hier aber sämtliche Exceptions sammeln, 
 		// gruppieren und dann sinnvoll weiterleiten, also
 		// wieder eine Exception werfen.
-		/*
-        onException(Exception.class)
-        .handled(true)
-        .log(LoggingLevel.ERROR, simple("${exception.stacktrace}").getText());
-		*/
+        //onException(Exception.class)
+        //.handled(true)
+        //.log(LoggingLevel.ERROR, simple("${exception.stacktrace}").getText())
 
 		// Reihenfolge sollte wohl Validierung -> Authorisierung sein.
 		// Weil man für die Prüfung der Authorisierung das File parsen muss,

@@ -22,7 +22,7 @@ import org.slf4j.LoggerFactory;
 public class IlivalidatorProcessor implements Processor {
     private final Logger log = LoggerFactory.getLogger(this.getClass());
 
-    private final String MODELNAME = "GB2AV";
+    private static final String MODELNAME = "GB2AV";
     
     /**
      * 
@@ -40,7 +40,7 @@ public class IlivalidatorProcessor implements Processor {
         settings.setValue(Validator.SETTING_LOGFILE, logFileName);
         
         // "Freeze" to AVGBS INTERLIS model. Ilivalidator will return
-        // a failed validation if we want to validate another model.
+        // false if we want to validate another model than "GB2AV".
         settings.setValue(Validator.SETTING_MODELNAMES, MODELNAME);
         
         String xmlFile = Paths.get(destDir.getAbsolutePath(), fileName).toFile().getAbsolutePath();

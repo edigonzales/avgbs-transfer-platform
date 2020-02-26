@@ -5,10 +5,12 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 import org.apache.camel.Exchange;
 import org.apache.camel.Processor;
@@ -79,15 +81,18 @@ public class AuthorisationProcessor implements Processor {
 
         if (!match) {
         	log.error("not allowed to send data");
-        	log.error("bfsnr: " + bfsnr);
-        	log.error("nbident: " + nbident);
-        	log.error("groups (user): " + groups.toString());
+        	log.error("bfsnr (data): " + bfsnr);
+        	log.error("nbident (data): " + nbident);
         	log.error("group (data): " + web);
-        	
+        	log.error("groups (user): " + groups.stream().map(g -> g.replaceAll("\\\\", "")).collect(Collectors.toList()));
+	        	
         	throw new AuthorisationProcessorException("not allowed to send data");
         }
 	}
 	
+	/*
+	 * 
+	 */
     private String parseTransferFile(File xtfFilePath) throws IoxException {
     	String nbident = null;
     	XtfReader ioxReader = null;
