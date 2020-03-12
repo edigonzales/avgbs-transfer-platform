@@ -49,42 +49,46 @@ public class AuthorisationProcessor implements Processor {
 	public void process(Exchange exchange) throws Exception {
         OAuth2AuthenticationToken authToken = (OAuth2AuthenticationToken) exchange.getIn().getHeader("CamelAuthentication");
         List<String> groups = (List<String>) authToken.getPrincipal().getAttributes().get("cognito:groups");
-        
+                
         File dataFile = exchange.getIn().getBody(File.class);
 		
 		// FIXME: Im Dataservice steckt der NBIdent nicht drin. Als
 		// Näherung verwende ich die BFS-Nummer. Das geht aber nicht
 		// immer ganz auf...
+        // -> NBIdent in agi_av_gb_admin_einteilungen Modell aufnehmen.
         String nbident = parseTransferFile(dataFile);        
 		String bfsnr = nbident.substring(nbident.length() - 4);
 		
         URL url = new URL(serviceUrl + "?filter=[[\"bfsnr\",\"=\","+bfsnr+"]]");
+        
+        log.info(url.toString());
+        
         URLConnection request = url.openConnection();
         request.connect();
 
         JsonNode root = objectMapper.readTree(new InputStreamReader((InputStream) request.getContent()));
         ArrayNode featureArray = (ArrayNode) root.get("features");
         Iterator<JsonNode> it = featureArray.iterator();
-        String web = "";
+        String uid = "";
         while (it.hasNext()) { 
             JsonNode node = it.next();
-            web = node.get("properties").get("web").textValue();
+            uid = node.get("properties").get("uid").textValue();
             break;
         }
 
         boolean match = false;
         for (String group : groups) {
-        	if (group.replaceAll("\\\\", "").contains(web)) {
+        	if (group.contains(uid)) {
         		match = true;
-        	}
+        	}        	
         }
 
         if (!match) {
         	log.error("not allowed to send data");
         	log.error("bfsnr (data): " + bfsnr);
         	log.error("nbident (data): " + nbident);
-        	log.error("group (data): " + web);
-        	log.error("groups (user): " + groups.stream().map(g -> g.replaceAll("\\\\", "")).collect(Collectors.toList()));
+        	log.error("group (data): " + uid);
+        	log.error("groups (user): " + groups.stream().map(g -> g).collect(Collectors.toList()));
 	        	
         	throw new AuthorisationProcessorException("not allowed to send data");
         }

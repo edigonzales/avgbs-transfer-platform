@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<TRANSFER xmlns="http://www.interlis.ch/INTERLIS2.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<HEADERSECTION VERSION="2.2" SENDER="BSB + Partner">
+		<ALIAS />
+	</HEADERSECTION>
+	<DATASECTION>
+		<GB2AV.Mutationstabelle BID="xxx" KIND="FULL">
+			<GB2AV.Grundstuecksbeschrieb.Gebaeude TID="xz48b7b2900000026f">
+				<GWR_EGID>160005156</GWR_EGID>
+				<istProjektiert>false</istProjektiert>
+				<istUnterirdisch>false</istUnterirdisch>
+				<Nummer>1</Nummer>
+				<Gebaeudeart>Gebaeude</Gebaeudeart>
+				<Flaechenmass>480.0</Flaechenmass>
+				<Adresse>
+					<GB2AV.GebaeudeeingangAdresse>
+						<Strasse>Bahnhofstrasse</Strasse>
+						<Hausnummer>22</Hausnummer>
+						<PLZ>9999</PLZ>
+						<Ortschaft>Egerkingen</Ortschaft>
+						<GWR_EDID>0</GWR_EDID>
+					</GB2AV.GebaeudeeingangAdresse>
+				</Adresse>
+			</GB2AV.Grundstuecksbeschrieb.Gebaeude>
+			<GB2AV.Grundstuecksbeschrieb.Gebaeude TID="xz48b7b29000000270">
+				<istProjektiert>false</istProjektiert>
+				<istUnterirdisch>false</istUnterirdisch>
+				<Gebaeudeart>Gebaeude</Gebaeudeart>
+				<Flaechenmass>54.0</Flaechenmass>
+			</GB2AV.Grundstuecksbeschrieb.Gebaeude>
+			<GB2AV.Grundstuecksbeschrieb.Gebaeude TID="xz48b7b2900000050a">
+				<GWR_EGID>330225</GWR_EGID>
+				<istProjektiert>false</istProjektiert>
+				<istUnterirdisch>false</istUnterirdisch>
+				<Nummer>1</Nummer>
+				<Gebaeudeart>Gebaeude</Gebaeudeart>
+				<Flaechenmass>218.0</Flaechenmass>
+				<Adresse>
+					<GB2AV.GebaeudeeingangAdresse>
+						<Strasse>Gartenstrasse</Strasse>
+						<Hausnummer>3</Hausnummer>
+						<PLZ>9999</PLZ>
+						<Ortschaft>Egerkingen</Ortschaft>
+						<GWR_EDID>0</GWR_EDID>
+					</GB2AV.GebaeudeeingangAdresse>
+				</Adresse>
+			</GB2AV.Grundstuecksbeschrieb.Gebaeude>
+			<GB2AV.Grundstuecksbeschrieb.Gebaeude TID="xz4be9497f00000000">
+				<GWR_EGID>330227</GWR_EGID>
+				<istProjektiert>false</istProjektiert>
+				<istUnterirdisch>false</istUnterirdisch>
+				<Nummer>1</Nummer>
+				<Gebaeudeart>Gebaeude</Gebaeudeart>
+				<Flaechenmass>297.0</Flaechenmass>
+				<Adresse>
+					<GB2AV.GebaeudeeingangAdresse>
+						<Strasse>Bahnhofstrasse</Strasse>
+						<Hausnummer>24</Hausnummer>
+						<PLZ>9999</PLZ>
+						<Ortschaft>Egerkingen</Ortschaft>
+						<GWR_EDID>0</GWR_EDID>
+					</GB2AV.GebaeudeeingangAdresse>
+				</Adresse>
+			</GB2AV.Grundstuecksbeschrieb.Gebaeude>
+			<GB2AV.Mutationstabelle.Liegenschaft TID="xz48b7b424000023b1">
+				<Flaechenmass>6717</Flaechenmass>
+				<GrundstueckArt>Liegenschaft</GrundstueckArt>
+				<Gemeinde>
+					<GB2AV.Gemeinde>
+						<Name>Zullwil</Name>
+						<BFSNr>2622</BFSNr>
+					</GB2AV.Gemeinde>
+				</Gemeinde>
+				<letzteVollzogeneMutation>
+					<GB2AV.MutationsNummer>
+						<Nummer>1623</Nummer>
+						<NBIdent>SO0200002401</NBIdent>
+					</GB2AV.MutationsNummer>
+				</letzteVollzogeneMutation>
+				<Nummer>
+					<GB2AV.GrundstueckNummer>
+						<EGRID>CH851632750621</EGRID>
+						<Nummer>1045</Nummer>
+						<SubKreis>SO0200002401</SubKreis>
+					</GB2AV.GrundstueckNummer>
+				</Nummer>
+				<GBPlaene>
+					<GB2AV.GBPlan>
+						<Nummer>10</Nummer>
+						<NBIdent>SO0200002401</NBIdent>
+					</GB2AV.GBPlan>
+				</GBPlaene>
+				<Flurnamen>
+					<GB2AV.Flurname>
+						<Name>Bleumatt</Name>
+					</GB2AV.Flurname>
+				</Flurnamen>
+				<BodbdAnteil>
+					<GB2AV.Grundstuecksbeschrieb.BodbdAnteil>
+						<Art>Gebaeude</Art>
+						<Flaechenmass>831.0</Flaechenmass>
+						<ArtBezeichnung>Geb&#xe4;ude</ArtBezeichnung>
+					</GB2AV.Grundstuecksbeschrieb.BodbdAnteil>
+					<GB2AV.Grundstuecksbeschrieb.BodbdAnteil>
+						<Art>befestigt.uebrige_befestigte</Art>
+						<Flaechenmass>2197.0</Flaechenmass>
+						<ArtBezeichnung>Geb&#xe4;udeerschliessung</ArtBezeichnung>
+					</GB2AV.Grundstuecksbeschrieb.BodbdAnteil>
+					<GB2AV.Grundstuecksbeschrieb.BodbdAnteil>
+						<Art>humusiert.Acker_Wiese_Weide</Art>
+						<Flaechenmass>1458.0</Flaechenmass>
+						<ArtBezeichnung>Acker und Wiese</ArtBezeichnung>
+					</GB2AV.Grundstuecksbeschrieb.BodbdAnteil>
+					<GB2AV.Grundstuecksbeschrieb.BodbdAnteil>
+						<Art>humusiert.Gartenanlage</Art>
+						<Flaechenmass>2231.0</Flaechenmass>
+						<ArtBezeichnung>Gartenanlage</ArtBezeichnung>
+					</GB2AV.Grundstuecksbeschrieb.BodbdAnteil>
+				</BodbdAnteil>
+				<Korrektur>-1</Korrektur>
+				<korrigiertesFlaechenmass>6774</korrigiertesFlaechenmass>
+			</GB2AV.Mutationstabelle.Liegenschaft>
+			<GB2AV.Mutationstabelle.Liegenschaft TID="xz48b7b42400002473">
+				<Flaechenmass>1397</Flaechenmass>
+				<GrundstueckArt>Liegenschaft</GrundstueckArt>
+				<Gemeinde>
+					<GB2AV.Gemeinde>
+						<Name>Zullwil</Name>
+						<BFSNr>2622</BFSNr>
+					</GB2AV.Gemeinde>
+				</Gemeinde>
+				<letzteVollzogeneMutation>
+					<GB2AV.MutationsNummer>
+						<Nummer>1623</Nummer>
+						<NBIdent>SO0200002401</NBIdent>
+					</GB2AV.MutationsNummer>
+				</letzteVollzogeneMutation>
+				<Nummer>
+					<GB2AV.GrundstueckNummer>
+						<EGRID>CH707406333204</EGRID>
+						<Nummer>1598</Nummer>
+						<SubKreis>SO0200002401</SubKreis>
+					</GB2AV.GrundstueckNummer>
+				</Nummer>
+				<GBPlaene>
+					<GB2AV.GBPlan>
+						<Nummer>10</Nummer>
+						<NBIdent>SO0200002401</NBIdent>
+					</GB2AV.GBPlan>
+				</GBPlaene>
+				<Flurnamen>
+					<GB2AV.Flurname>
+						<Name>Bleumatt</Name>
+					</GB2AV.Flurname>
+				</Flurnamen>
+				<BodbdAnteil>
+					<GB2AV.Grundstuecksbeschrieb.BodbdAnteil>
+						<Art>Gebaeude</Art>
+						<Flaechenmass>218.0</Flaechenmass>
+						<ArtBezeichnung>Geb&#xe4;ude</ArtBezeichnung>
+					</GB2AV.Grundstuecksbeschrieb.BodbdAnteil>
+					<GB2AV.Grundstuecksbeschrieb.BodbdAnteil>
+						<Art>befestigt.uebrige_befestigte</Art>
+						<Flaechenmass>225.0</Flaechenmass>
+						<ArtBezeichnung>Geb&#xe4;udeerschliessung</ArtBezeichnung>
+					</GB2AV.Grundstuecksbeschrieb.BodbdAnteil>
+					<GB2AV.Grundstuecksbeschrieb.BodbdAnteil>
+						<Art>humusiert.Gartenanlage</Art>
+						<Flaechenmass>954.0</Flaechenmass>
+						<ArtBezeichnung>Gartenanlage</ArtBezeichnung>
+					</GB2AV.Grundstuecksbeschrieb.BodbdAnteil>
+				</BodbdAnteil>
+				<Korrektur>1</Korrektur>
+				<korrigiertesFlaechenmass>1340</korrigiertesFlaechenmass>
+				<Zugang>
+					<GB2AV.Mutationstabelle.Abschnitt>
+						<Flaechenmass>57</Flaechenmass>
+						<von>
+							<GB2AV.GrundstueckNummer>
+								<EGRID>CH851632750621</EGRID>
+								<Nummer>1045</Nummer>
+								<SubKreis>SO0200002401</SubKreis>
+							</GB2AV.GrundstueckNummer>
+						</von>
+					</GB2AV.Mutationstabelle.Abschnitt>
+				</Zugang>
+			</GB2AV.Mutationstabelle.Liegenschaft>
+			<GB2AV.Grundstuecksbeschrieb.GrundstueckGebaeude TID="x1">
+				<Gebaeude REF="xz48b7b2900000026f"/>
+				<Grundstueck REF="xz48b7b424000023b1"/>
+				<Flaechenmass>480.0</Flaechenmass>
+			</GB2AV.Grundstuecksbeschrieb.GrundstueckGebaeude>
+			<GB2AV.Grundstuecksbeschrieb.GrundstueckGebaeude TID="x2">
+				<Gebaeude REF="xz48b7b29000000270"/>
+				<Grundstueck REF="xz48b7b424000023b1"/>
+				<Flaechenmass>54.0</Flaechenmass>
+			</GB2AV.Grundstuecksbeschrieb.GrundstueckGebaeude>
+			<GB2AV.Grundstuecksbeschrieb.GrundstueckGebaeude TID="x3">
+				<Gebaeude REF="xz48b7b2900000050a"/>
+				<Grundstueck REF="xz48b7b42400002473"/>
+				<Flaechenmass>218.0</Flaechenmass>
+			</GB2AV.Grundstuecksbeschrieb.GrundstueckGebaeude>
+			<GB2AV.Grundstuecksbeschrieb.GrundstueckGebaeude TID="x4">
+				<Gebaeude REF="xz4be9497f00000000"/>
+				<Grundstueck REF="xz48b7b424000023b1"/>
+				<Flaechenmass>297.0</Flaechenmass>
+			</GB2AV.Grundstuecksbeschrieb.GrundstueckGebaeude>
+			<GB2AV.Mutationstabelle.AVMutation TID="xz5cb448709d480006">
+				<Beschrieb>Grenz�nderung</Beschrieb>
+				<DateinamePlan>SO0200002401_1623_20190416.pdf</DateinamePlan>
+				<EndeTechnBereit>2019-04-15</EndeTechnBereit>
+				<istProjektMutation>Normal</istProjektMutation>
+				<MutationsNummer>
+					<GB2AV.MutationsNummer>
+						<Nummer>1623</Nummer>
+						<NBIdent>SO0200002622</NBIdent>
+					</GB2AV.MutationsNummer>
+				</MutationsNummer>
+			</GB2AV.Mutationstabelle.AVMutation>
+			<GB2AV.Mutationstabelle.AVMutationBetroffeneGrundstuecke TID="x5">
+				<AVMutation REF="xz5cb448709d480006"></AVMutation>
+				<betroffeneGrundstuecke REF="xz48b7b424000023b1"></betroffeneGrundstuecke>
+			</GB2AV.Mutationstabelle.AVMutationBetroffeneGrundstuecke>
+			<GB2AV.Mutationstabelle.AVMutationBetroffeneGrundstuecke TID="x6">
+				<AVMutation REF="xz5cb448709d480006"></AVMutation>
+				<betroffeneGrundstuecke REF="xz48b7b42400002473"></betroffeneGrundstuecke>
+			</GB2AV.Mutationstabelle.AVMutationBetroffeneGrundstuecke>
+		</GB2AV.Mutationstabelle>
+	</DATASECTION>
+</TRANSFER>
