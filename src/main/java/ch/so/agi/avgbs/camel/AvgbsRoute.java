@@ -30,7 +30,7 @@ public class AvgbsRoute extends RouteBuilder {
 		
         from("direct:avgbs-data-transfer")
         .log(LoggingLevel.INFO, "Ilivalidator started.")        
-        //.process(ilivalidatorProcessor)
+        .process(ilivalidatorProcessor)
         .log(LoggingLevel.INFO, "Ilivalidator successfully passed.")
         .log(LoggingLevel.INFO, "Authorisation started.")
         .process(authorisationProcessor)
